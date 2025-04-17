@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#M#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:gold_nugget"
+    },
+    "M": {
+      "item": "mojaffa:jaffa_cake"
+    }
+  },
+  "result": {
+    "item": "mojaffa:golden_jaffa_cake",
+    "count": 1
+  }
+}
