@@ -2,8 +2,10 @@
   "itemGroup.mojaffa.jaffa_tab": "Mo'Jaffa",
   "item.mojaffa.jaffa_cake": "Jaffa Cake",
   "item.mojaffa.beefy_jaffa_cake": "Beefy Jaffa",
+  "item.mojaffa.jaffa_donut": "Jaffa Jonut",
   "item.mojaffa.golden_jaffa_cake": "Golden Jaffa Cake",
   "key.mojaffa.open_screen": "Ponder",
   "key.categories.mojaffa": "Mo' Jaffas",
-  "tooltip.mojaffa.jaffa_cake": "§6§oPonderable§r§r"
+  "tooltip.mojaffa.jaffa_cake": "§6§oPonderable§r§r",
+  "item.mojaffa.jaffa_donut.desc": "Dwarf Hole (Diggy Diggy Hole) - The Yogscast"
 }

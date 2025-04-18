@@ -1,0 +1,10 @@
+{
+  "jonut_music": {
+    "sounds": [
+      {
+        "name": "mojaffa:iamadwarf",
+        "stream": true
+      }
+    ]
+  }
+}

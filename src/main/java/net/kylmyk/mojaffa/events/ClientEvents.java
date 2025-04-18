@@ -25,12 +25,9 @@ public class ClientEvents {
         InputConstants.Key key = InputConstants.getKey(event.getKey(), event.getScanCode());
 
         if (ModKeybindings.OPEN_JAFFA_SCREEN.isActiveAndMatches(key)) {
-            System.out.println("[JAFFA] J key was pressed in GUI!");
-
             ItemStack hovered = getHoveredItem();
-            if (!hovered.isEmpty() && hovered.getItem() == ModItems.JAFFACAKE.get()) {
-                System.out.println("[JAFFA] Hovering over jaffa_cake and J key pressed!");
-                Minecraft.getInstance().setScreen(new JaffaImageScreen());
+            if (!hovered.isEmpty() && ModItems.PONDERABLE_ITEMS.contains(hovered.getItem())) {
+                Minecraft.getInstance().setScreen(new JaffaImageScreen(hovered.getItem()));
             }
         }
     }

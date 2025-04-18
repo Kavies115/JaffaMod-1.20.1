@@ -2,20 +2,22 @@ package net.kylmyk.mojaffa.ponder;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
-import net.kylmyk.mojaffa.JaffaMod;
-import net.kylmyk.mojaffa.item.ModItems;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 
 public class JaffaImageScreen extends Screen {
-    public JaffaImageScreen() {
+
+    private Item modItems;
+
+    public JaffaImageScreen(Item modItems) {
         super(Component.literal("Jaffa Cake"));
+        this.modItems = modItems;
     }
 
     public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
@@ -24,7 +26,7 @@ public class JaffaImageScreen extends Screen {
         // Get the Minecraft instance and ItemRenderer
         Minecraft mc = Minecraft.getInstance();
         ItemRenderer itemRenderer = mc.getItemRenderer();
-        ItemStack jaffaCake = new ItemStack(ModItems.JAFFACAKE.get());
+        ItemStack jaffaCake = new ItemStack(modItems);
 
         // Calculate rotation angle based on system time
         float time = (System.currentTimeMillis() % 3600L) / 10.0f; // 360 degrees every 6s
@@ -34,14 +36,13 @@ public class JaffaImageScreen extends Screen {
         poseStack.pushPose();
 
         // Calculate the scale factor to make the item 1/2 the size of the screen
-        float scaleX = this.height / 2.0f; // Make the item half the width of the screen (16 is the original item size)
-        float scaleY = this.height / 2.0f; // Make the item half the height of the screen (16 is the original item size)
+        float scale = this.height / 2.0f; // Make the item half the width of the screen
 
         // Center the item on the screen
         poseStack.translate(this.width / 2f, this.height / 2f, 200);
 
         // Apply scaling and flipping (flip horizontally)
-        poseStack.scale(scaleX, -scaleY, 1.0f); // Flip horizontally (negative scale on X)
+        poseStack.scale(scale, -scale, 1.0f); // Flip horizontally (negative scale on X)
 
         // Apply rotation (spinning)
         poseStack.mulPose(Axis.YP.rotationDegrees(time)); // Spin the item

@@ -1,20 +1,11 @@
 package net.kylmyk.mojaffa.input;
 
-import com.google.common.base.Suppliers;
 import com.mojang.blaze3d.platform.InputConstants;
-import cpw.mods.util.Lazy;
 import net.kylmyk.mojaffa.JaffaMod;
 import net.minecraft.client.KeyMapping;
-import net.minecraft.client.Minecraft;
-import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
-import net.minecraftforge.client.settings.KeyConflictContext;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import org.apache.commons.lang3.ArrayUtils;
 import org.lwjgl.glfw.GLFW;
-
-import java.util.function.Supplier;
 
 @Mod.EventBusSubscriber(modid = JaffaMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModKeybindings {
@@ -26,7 +17,7 @@ public class ModKeybindings {
         OPEN_JAFFA_SCREEN = new KeyMapping(
                 "key.mojaffa.open_screen",
                 InputConstants.Type.KEYSYM,
-                GLFW.GLFW_KEY_J,
+                GLFW.GLFW_KEY_W,
                 "key.categories.mojaffa"
         );
         event.register(OPEN_JAFFA_SCREEN);
