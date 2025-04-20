@@ -16,6 +16,12 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> JONUT_SOUND =
             registryObjectEvent("jonut_music");
 
+    public static final RegistryObject<SoundEvent> BELL =
+            registryObjectEvent("bell");
+
+    public static final RegistryObject<SoundEvent> JOSH_HUTSON =
+            registryObjectEvent("whislebaby");
+
     public static RegistryObject<SoundEvent> registryObjectEvent(String name) {
         return SOUND_EVENT.register(name, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(JaffaMod.MOD_ID, name)));
     }

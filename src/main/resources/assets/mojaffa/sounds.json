@@ -6,5 +6,21 @@
         "stream": true
       }
     ]
+  },
+  "bell": {
+    "sounds": [
+      {
+        "name": "mojaffa:bell",
+        "stream": true
+      }
+    ]
+  },
+  "whislebaby": {
+    "sounds": [
+      {
+        "name": "mojaffa:whislebaby",
+        "stream": true
+      }
+    ]
   }
 }

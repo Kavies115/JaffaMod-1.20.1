@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " i ",
+    "iMi",
+    "ii "
+  ],
+  "key": {
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "M": {
+      "item": "mojaffa:jaffa_cake"
+    }
+  },
+  "result": {
+    "item": "mojaffa:whistle",
+    "count": 1
+  }
+}

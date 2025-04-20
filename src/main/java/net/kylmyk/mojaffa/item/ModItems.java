@@ -3,6 +3,10 @@ package net.kylmyk.mojaffa.item;
 import net.kylmyk.mojaffa.JaffaMod;
 import net.kylmyk.mojaffa.sounds.ModSounds;
 import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
@@ -45,6 +49,39 @@ public class ModItems {
                 public void appendHoverText(ItemStack stack, @Nullable Level world, List<Component> tooltip, TooltipFlag flag) {
                     super.appendHoverText(stack, world, tooltip, flag);
                     tooltip.add(Component.translatable("tooltip.mojaffa.jaffa_cake"));
+                }
+            });
+
+    public static final RegistryObject<Item> BELL = ITEMS.register("whistle",
+            () -> new RecordItem(
+                    14,
+                    ModSounds.JOSH_HUTSON,
+                    new Item.Properties()
+                            .stacksTo(1)
+                            .food(new FoodProperties.Builder().nutrition(10).saturationMod(10.2f).build())
+                            .rarity(Rarity.RARE)
+                    ,
+                    2480
+            ) {
+                @Override
+                public void appendHoverText(ItemStack stack, @Nullable Level world, List<Component> tooltip, TooltipFlag flag) {
+                    super.appendHoverText(stack, world, tooltip, flag);
+                    tooltip.add(Component.translatable("tooltip.mojaffa.jaffa_cake"));
+                }
+
+                @Override
+                public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+                    ItemStack itemstack = player.getItemInHand(hand);
+
+                    // Play the horn sound
+                    if (!level.isClientSide) {
+                        level.playSound(null, player.getX(), player.getY(), player.getZ(),
+                                ModSounds.BELL.get(), SoundSource.PLAYERS, 1.0F, 1.0F);
+                    }
+
+                    player.getCooldowns().addCooldown(this, 60); // Optional: 3 second cooldown
+
+                    return InteractionResultHolder.sidedSuccess(itemstack, level.isClientSide());
                 }
             });
 
